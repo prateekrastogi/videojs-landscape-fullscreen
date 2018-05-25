@@ -79,7 +79,11 @@ if (videojs.browser.IS_IOS) {
 
 player.on('fullscreenchange', e => {
   if (videojs.browser.IS_ANDROID || videojs.browser.IS_IOS) {
-    console.log(e)
+    if(!angle() && player.isFullscreen()) {
+      console.log(player)
+    console.log('portrait mode')
+    console.log(angle())
+    }
   }
 });
 };
