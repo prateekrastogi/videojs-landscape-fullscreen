@@ -1,0 +1,14 @@
+{
+  "generator-videojs-plugin": {
+    "scope": "",
+    "name": "landscape-fullscreen",
+    "description": "",
+    "author": "Prateek Rastogi",
+    "license": "mit",
+    "sass": false,
+    "ie8": false,
+    "docs": false,
+    "lang": true,
+    "husky": "lint"
+  }
+}
