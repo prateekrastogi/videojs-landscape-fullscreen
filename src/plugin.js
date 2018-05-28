@@ -58,6 +58,8 @@ const onPlayerReady = (player, options) => {
 const rotationHandler = () => {
   const currentAngle = angle();
 
+  transformHandler(player.el(), 0)
+
   if (currentAngle === 90 || currentAngle === 270 || currentAngle === -90) {
     if (player.paused() === false) {
       player.requestFullscreen();
@@ -77,13 +79,39 @@ if (videojs.browser.IS_IOS) {
   screen.orientation.onchange = rotationHandler;
 }
 
+const transformHandler = (playerDomEl, transformAngle) => {
+        /* Array of possible browser specific settings for transformation */
+        var properties = ['transform', 'WebkitTransform', 'MozTransform',
+                          'msTransform', 'OTransform'],
+            prop = properties[0];
+
+        /* Iterators */
+        var i,j;
+
+        /* Find out which CSS transform the browser supports */
+        for(i=0,j=properties.length;i<j;i++){
+          if(typeof playerDomEl.style[properties[i]] !== 'undefined'){
+            prop = properties[i];
+            break;
+          }
+        }
+
+        console.log(angle())
+        /* Let's do it */
+        playerDomEl.style.overflow = 'hidden';
+
+        playerDomEl.style[prop]='rotate('+transformAngle+'deg)';
+}
+
+
 player.on('fullscreenchange', e => {
   if (videojs.browser.IS_ANDROID || videojs.browser.IS_IOS) {
-    if(!angle() && player.isFullscreen()) {
       console.log(player)
-    console.log('portrait mode')
-    console.log(angle())
-    }
+     let playerDomEl = player.el();
+
+    (!angle() && player.isFullscreen()) ? transformHandler(playerDomEl, 90): transformHandler(playerDomEl, 0)
+
+    if(!player.isFullscreen()) transformHandler(playerDomEl,0)
   }
 });
 };
