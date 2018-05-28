@@ -96,7 +96,6 @@ const transformHandler = (playerDomEl, transformAngle) => {
           }
         }
 
-        console.log(angle())
         /* Let's do it */
         playerDomEl.style.overflow = 'hidden';
 
@@ -106,12 +105,10 @@ const transformHandler = (playerDomEl, transformAngle) => {
 
 player.on('fullscreenchange', e => {
   if (videojs.browser.IS_ANDROID || videojs.browser.IS_IOS) {
-      console.log(player)
      let playerDomEl = player.el();
 
-    (!angle() && player.isFullscreen()) ? transformHandler(playerDomEl, 90): transformHandler(playerDomEl, 0)
+    (!angle() && player.isFullscreen()) ? transformHandler(playerDomEl, 90): transformHandler(playerDomEl, 0);
 
-    if(!player.isFullscreen()) transformHandler(playerDomEl,0)
   }
 });
 };
