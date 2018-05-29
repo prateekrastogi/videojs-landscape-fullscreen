@@ -3,7 +3,7 @@
 Fullscreen control:
 
 - Rotate to landscape to enter Fullscreen
-- Always enter fullscreen in landscape mode
+- Always enter fullscreen in landscape mode even if device is in portrait mode
 
 ## Installation
 
