@@ -6,13 +6,14 @@ import window from 'global/window';
 const defaults = {
   fullscreen: {
     enterOnRotate: true,
-    iOS: false
+    alwaysInLandscapeMode: true,
+    iOS: true
   }
 };
 
 const screen = window.screen;
 
-screen.lockOrientationUniversal = (mode) => screen.orientation.lock(mode) || screen.mozLockOrientation(mode) || screen.msLockOrientation(mode);
+screen.lockOrientationUniversal = (mode) => screen.orientation.lock(mode).then(() => {}, err => console.log(err)) || screen.mozLockOrientation(mode) || screen.msLockOrientation(mode);
 
 const angle = () => {
   // iOS
@@ -63,6 +64,7 @@ const rotationHandler = () => {
   if (currentAngle === 90 || currentAngle === 270 || currentAngle === -90) {
     if (player.paused() === false) {
       player.requestFullscreen();
+      screen.lockOrientationUniversal('landscape');
     }
   }
   if (currentAngle === 0 || currentAngle === 180) {
@@ -82,7 +84,7 @@ if (videojs.browser.IS_IOS) {
 player.on('fullscreenchange', e => {
   if (videojs.browser.IS_ANDROID || videojs.browser.IS_IOS) {
 
-    if(!angle() && player.isFullscreen()) screen.lockOrientationUniversal('landscape');
+    if(!angle() && player.isFullscreen() && options.fullscreen.alwaysInLandscapeMode) screen.lockOrientationUniversal('landscape');
 
   }
 });

@@ -1,11 +1,28 @@
 # videojs-landscape-fullscreen
 
+Fullscreen control:
 
+- Rotate to landscape to enter Fullscreen
+- Always enter fullscreen in landscape mode
 
 ## Installation
 
 ```sh
 npm install --save videojs-landscape-fullscreen
+```
+
+## Plugin Options
+
+### Default options
+
+```js
+{
+  fullscreen: {
+    enterOnRotate: true,         // Enter fullscreen mode on rotating the device in landscape
+    alwaysInLandscapeMode: true, // Always enter fullscreen in landscape mode even when device is in portrait mode (works on chromium, firefox, and ie >= 11)
+    iOS: true //Whether to use fake fullscreen on iOS (needed for displaying player controls instead of system controls)
+  }
+};
 ```
 
 ## Usage
@@ -61,3 +78,7 @@ MIT. Copyright (c) Prateek Rastogi
 
 
 [videojs]: http://videojs.com/
+
+## Credits
+
+Heavily influenced from https://github.com/mister-ben/videojs-mobile-ui
