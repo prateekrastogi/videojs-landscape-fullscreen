@@ -13,6 +13,7 @@ const defaults = {
 
 const screen = window.screen;
 
+/* eslint-disable no-console */
 screen.lockOrientationUniversal = (mode) => screen.orientation.lock(mode).then(() => {}, err => console.log(err)) || screen.mozLockOrientation(mode) || screen.msLockOrientation(mode);
 
 const angle = () => {
@@ -52,42 +53,43 @@ const onPlayerReady = (player, options) => {
   if (options.fullscreen.iOS &&
     videojs.browser.IS_IOS && videojs.browser.IOS_VERSION > 9 &&
     !player.el_.ownerDocument.querySelector('.bc-iframe')) {
-  player.tech_.el_.setAttribute('playsinline', 'playsinline');
-  player.tech_.supportsFullScreen = function() {
-    return false;
+    player.tech_.el_.setAttribute('playsinline', 'playsinline');
+    player.tech_.supportsFullScreen = function() {
+      return false;
+    };
+  }
+
+  const rotationHandler = () => {
+    const currentAngle = angle();
+
+    if (currentAngle === 90 || currentAngle === 270 || currentAngle === -90) {
+      if (player.paused() === false) {
+        player.requestFullscreen();
+        screen.lockOrientationUniversal('landscape');
+      }
+    }
+    if (currentAngle === 0 || currentAngle === 180) {
+      if (player.isFullscreen()) {
+        player.exitFullscreen();
+      }
+    }
   };
-}
 
-const rotationHandler = () => {
-  const currentAngle = angle();
+  if (videojs.browser.IS_IOS) {
+    window.addEventListener('orientationchange', rotationHandler);
+  } else {
+    // addEventListener('orientationchange') is not a user interaction on Android
+    screen.orientation.onchange = rotationHandler;
+  }
 
-  if (currentAngle === 90 || currentAngle === 270 || currentAngle === -90) {
-    if (player.paused() === false) {
-      player.requestFullscreen();
-      screen.lockOrientationUniversal('landscape');
+  player.on('fullscreenchange', e => {
+    if (videojs.browser.IS_ANDROID || videojs.browser.IS_IOS) {
+
+      if (!angle() && player.isFullscreen() && options.fullscreen.alwaysInLandscapeMode) {
+        screen.lockOrientationUniversal('landscape');
+      }
     }
-  }
-  if (currentAngle === 0 || currentAngle === 180) {
-    if (player.isFullscreen()) {
-      player.exitFullscreen();
-    }
-  }
-};
-
-if (videojs.browser.IS_IOS) {
-  window.addEventListener('orientationchange', rotationHandler);
-} else {
-  // addEventListener('orientationchange') is not a user interaction on Android
-  screen.orientation.onchange = rotationHandler;
-}
-
-player.on('fullscreenchange', e => {
-  if (videojs.browser.IS_ANDROID || videojs.browser.IS_IOS) {
-
-    if(!angle() && player.isFullscreen() && options.fullscreen.alwaysInLandscapeMode) screen.lockOrientationUniversal('landscape');
-
-  }
-});
+  });
 };
 
 /**
