@@ -26,7 +26,7 @@ npm install --save videojs-landscape-fullscreen
 ```
 ## Pull Requests
 
-Feel free to open pull requests to as long as there are no major changes in api surface area.
+Feel free to open pull requests as long as there are no major changes in api surface area.
 
 ## Usage
 
