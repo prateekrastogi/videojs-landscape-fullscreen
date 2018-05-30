@@ -1,6 +1,6 @@
 {
   "name": "videojs-landscape-fullscreen",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "description": "",
   "main": "dist/videojs-landscape-fullscreen.cjs.js",
   "module": "dist/videojs-landscape-fullscreen.es.js",
