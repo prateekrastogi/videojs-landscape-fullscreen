@@ -77,7 +77,7 @@ const onPlayerReady = (player, options) => {
 
   if (videojs.browser.IS_IOS) {
     window.addEventListener('orientationchange', rotationHandler);
-  } else {
+  } else if (screen && screen.orientation) {
     // addEventListener('orientationchange') is not a user interaction on Android
     screen.orientation.onchange = rotationHandler;
   }
