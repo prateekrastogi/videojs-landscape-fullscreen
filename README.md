@@ -24,9 +24,6 @@ npm install --save videojs-landscape-fullscreen
   }
 };
 ```
-## Pull Requests
-
-Feel free to open pull requests as long as there are no major changes in api surface area.
 
 ## Usage
 
@@ -115,9 +112,13 @@ require(['video.js', 'videojs-landscape-fullscreen'], function(videojs) {
 });
 ```
 
+## Pull Requests
+
+Feel free to open pull requests as long as there are no major changes in api surface area.
+
 ## License
 
-MIT. Copyright (c) Prateek Rastogi
+MIT.
 
 
 [videojs]: http://videojs.com/
