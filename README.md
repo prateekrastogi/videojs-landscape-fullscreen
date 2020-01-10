@@ -69,6 +69,30 @@ class Player extends Component {
 export default Player
 ```
 
+```js
+import React from 'react'
+import Player from '../components/Player'
+
+// Or Use React-Hooks
+export default class Index extends React.Component {
+  render() {
+    const videoJsOptions = {
+      techOrder: ['youtube'],
+      autoplay: false,
+      controls: true,
+      sources: [
+        {
+          src: 'https://www.youtube.com/watch?v=D8Ymd-OCucs',
+          type: 'video/youtube',
+        },
+      ],
+    }
+
+    return <Player {...videoJsOptions} />
+  }
+}
+```
+
 ### `<script>` Tag
 
 This is the simplest case. Get the script in whatever way you prefer and include the plugin _after_ you include [video.js][videojs], so that the `videojs` global is available.
