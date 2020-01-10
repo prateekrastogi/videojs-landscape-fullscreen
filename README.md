@@ -34,7 +34,7 @@ To include videojs-landscape-fullscreen on your website or web application, use 
 
 ### React
 
-```
+```js
 import React, { Component } from 'react'
 import videojs from 'video.js'
 import 'videojs-youtube'
