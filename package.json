@@ -1,7 +1,7 @@
 {
   "name": "videojs-landscape-fullscreen",
-  "version": "1.0.4",
-  "description": "Automatically Switch to Landscape on Fullscreen, and Fullscreen on Landscape",
+  "version": "1.0.5",
+  "description": "Videojs & React Plugin: Automatically Switch to Landscape on Fullscreen, and Fullscreen on Landscape",
   "main": "dist/videojs-landscape-fullscreen.cjs.js",
   "module": "dist/videojs-landscape-fullscreen.es.js",
   "repository": "https://github.com/prateekrastogi/videojs-landscape-fullscreen",
@@ -71,7 +71,7 @@
     "bannerize": "^1.1.4",
     "conventional-changelog-cli": "^2.0.31",
     "conventional-changelog-videojs": "^3.0.0",
-    "husky": "^4.0.7",
+    "husky": "^4.0.10",
     "in-publish": "^2.0.0",
     "karma": "^4.4.1",
     "karma-chrome-launcher": "^3.1.0",
@@ -94,7 +94,7 @@
     "rollup-plugin-node-resolve": "^5.2.0",
     "rollup-watch": "^4.3.1",
     "semver": "^7.1.1",
-    "sinon": "^8.0.4",
+    "sinon": "^8.1.0",
     "uglify-js": "^3.7.5",
     "videojs-languages": "^2.0.0",
     "videojs-standard": "^8.0.4"
