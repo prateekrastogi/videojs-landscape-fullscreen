@@ -140,9 +140,6 @@ require(['video.js', 'videojs-landscape-fullscreen'], function(videojs) {
 
 Feel free to open pull requests as long as there are no major changes in api surface area.
 
-## License
-
-MIT.
 
 
 
