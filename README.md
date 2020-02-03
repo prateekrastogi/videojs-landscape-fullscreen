@@ -145,8 +145,4 @@ Feel free to open pull requests as long as there are no major changes in api sur
 MIT.
 
 
-[videojs]: http://videojs.com/
 
-## Credits
-
-Heavily influenced from https://github.com/mister-ben/videojs-mobile-ui
