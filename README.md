@@ -1,5 +1,7 @@
 # videojs-landscape-fullscreen
 
+[![](https://data.jsdelivr.com/v1/package/npm/videojs-landscape-fullscreen/badge)](https://www.jsdelivr.com/package/npm/videojs-landscape-fullscreen)
+
 Fullscreen control:
 
 - Rotate to landscape to enter Fullscreen
