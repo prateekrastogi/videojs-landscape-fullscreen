@@ -1,6 +1,6 @@
 {
   "name": "videojs-landscape-fullscreen",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "Videojs on Mobile & React: Automatically Switch to Landscape on Fullscreen, and Fullscreen on Landscape",
   "main": "dist/videojs-landscape-fullscreen.min.js",
   "repository": "https://github.com/prateekrastogi/videojs-landscape-fullscreen",
