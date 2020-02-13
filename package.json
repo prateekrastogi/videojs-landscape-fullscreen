@@ -1,35 +1,40 @@
 {
-  "name": "videojs-landscape-fullscreen",
-  "version": "1.2.2",
-  "description": "Videojs on Mobile & React: Automatically Switch to Landscape on Fullscreen, and Fullscreen on Landscape",
-  "main": "dist/videojs-landscape-fullscreen.min.js",
-  "repository": "https://github.com/prateekrastogi/videojs-landscape-fullscreen",
-  "scripts": {
-    "prebuild": "rimraf dist && mkdirp dist",
-    "build": "babel src/plugin.js --out-file dist/videojs-landscape-fullscreen.min.js",
-    "lint": "vjsstandard",
-    "prepush": "npm run lint"
-  },
-  "keywords": [
-    "videojs",
-    "videojs-mobile",
-    "videojs-plugin",
-    "react"
-  ],
-  "author": "Prateek Rastogi",
-  "peerDependencies": {
-    "video.js": "5.x || 6.x || 7.x"
-  },
-  "dependencies": {
-    "global": "^4.4.0"
-  },
-  "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.8.4",
-    "husky": "^4.2.3",
-    "mkdirp": "^1.0.3",
-    "rimraf": "^3.0.2",
-    "videojs-standard": "^8.0.4"
-  }
+    "name": "videojs-landscape-fullscreen",
+    "author": "Prateek Rastogi",
+    "version": "1.2.3",
+    "description": "Videojs on Mobile & React: Automatically Switch to Landscape on Fullscreen, and Fullscreen on Landscape",
+    "main": "dist/videojs-landscape-fullscreen.min.js",
+    "repository": "https://github.com/prateekrastogi/videojs-landscape-fullscreen",
+    "scripts": {
+        "prebuild": "rimraf dist && mkdirp dist",
+        "build": "babel src/plugin.js --out-file dist/videojs-landscape-fullscreen.min.js",
+        "lint": "vjsstandard",
+        "prepush": "npm run lint"
+    },
+    "keywords": [
+        "videojs",
+        "videojs-mobile",
+        "videojs-plugin",
+        "react"
+    ],
+    "vjsstandard": {
+        "ignore": [
+            "dist"
+        ]
+    },
+    "peerDependencies": {
+        "video.js": "5.x || 6.x || 7.x"
+    },
+    "dependencies": {
+        "global": "^4.4.0"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.8.4",
+        "@babel/core": "^7.8.4",
+        "@babel/preset-env": "^7.8.4",
+        "husky": "^4.2.3",
+        "mkdirp": "^1.0.3",
+        "rimraf": "^3.0.2",
+        "videojs-standard": "^8.0.4"
+    }
 }
