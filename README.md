@@ -36,14 +36,26 @@ To include videojs-landscape-fullscreen on your website or web application, use 
 ```js
 import React, { Component } from 'react'
 import videojs from 'video.js'
-import 'videojs-youtube'
 import 'video.js/dist/video-js.css'
+
+// initialize video.js plugins
+import 'videojs-youtube'
+import 'videojs-landscape-fullscreen'
 
 class Player extends Component {
   componentDidMount() {
     // instantiate Video.js
     this.player = videojs(this.videoNode, this.props, function onPlayerReady() {
       console.log('onPlayerReady', this)
+    })
+    
+    // configure plugins
+    this.player.landscapeFullscreen({
+      fullscreen: {
+        enterOnRotate: true,
+        alwaysInLandscapeMode: true,
+        iOS: true
+      }
     })
   }
 
