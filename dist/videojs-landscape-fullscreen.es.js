@@ -1,8 +1,8 @@
-/*! @name videojs-landscape-fullscreen @version 1.3.7 @license ISC */
+/*! @name videojs-landscape-fullscreen @version 1.4.6 @license ISC */
 import videojs from 'video.js';
 import window from 'global/window';
 
-var version = "1.3.7";
+var version = "1.4.6";
 
 var defaults = {
   fullscreen: {
