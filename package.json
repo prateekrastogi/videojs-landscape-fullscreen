@@ -2,12 +2,13 @@
     "name": "videojs-landscape-fullscreen",
     "author": "Prateek Rastogi",
     "version": "1.2.6",
+    "license": "ISC",
     "description": "Videojs on Mobile and/or React: Automatically Switch to Landscape on Fullscreen, and Fullscreen on Landscape",
     "main": "dist/videojs-landscape-fullscreen.min.js",
     "repository": "https://github.com/prateekrastogi/videojs-landscape-fullscreen",
     "scripts": {
         "prebuild": "rimraf dist && mkdirp dist",
-        "build": "babel src/plugin.js --out-file dist/videojs-landscape-fullscreen.min.js",
+        "build": "rollup -c rollup.config.js && rimraf test",
         "lint": "vjsstandard",
         "prepush": "npm run lint"
     },
@@ -29,12 +30,11 @@
         "global": "^4.4.0"
     },
     "devDependencies": {
-        "@babel/cli": "^7.8.4",
-        "@babel/core": "^7.8.4",
-        "@babel/preset-env": "^7.8.4",
         "husky": "^4.2.3",
         "mkdirp": "^1.0.3",
         "rimraf": "^3.0.2",
+        "rollup": "^1.31.1",
+        "videojs-generate-rollup-config": "^5.0.1",
         "videojs-standard": "^8.0.4"
     }
 }
