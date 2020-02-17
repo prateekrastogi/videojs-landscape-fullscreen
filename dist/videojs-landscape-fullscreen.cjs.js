@@ -1,4 +1,4 @@
-/*! @name videojs-landscape-fullscreen @version 1.4.8 @license ISC */
+/*! @name videojs-landscape-fullscreen @version 1.4.9 @license ISC */
 'use strict';
 
 function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
@@ -6,7 +6,7 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 var videojs = _interopDefault(require('video.js'));
 var window = _interopDefault(require('global/window'));
 
-var version = "1.4.8";
+var version = "1.4.9";
 
 var defaults = {
   fullscreen: {

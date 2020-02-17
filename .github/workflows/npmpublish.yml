@@ -3,16 +3,6 @@ name: Node.js Package
 on: push
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12
-      - run: npm i
-      - run: npm run build  
-
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
@@ -22,6 +12,9 @@ jobs:
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
-      - run: npm publish
+      - run: |
+          npm i
+          npm run build
+          npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.npm_token}}

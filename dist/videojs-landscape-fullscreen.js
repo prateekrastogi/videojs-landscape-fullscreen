@@ -1,4 +1,4 @@
-/*! @name videojs-landscape-fullscreen @version 1.4.8 @license ISC */
+/*! @name videojs-landscape-fullscreen @version 1.4.9 @license ISC */
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('video.js'), require('global/window')) :
     typeof define === 'function' && define.amd ? define(['video.js', 'global/window'], factory) :
@@ -8,7 +8,7 @@
     videojs = videojs && videojs.hasOwnProperty('default') ? videojs['default'] : videojs;
     window = window && window.hasOwnProperty('default') ? window['default'] : window;
 
-    var version = "1.4.8";
+    var version = "1.4.9";
 
     var defaults = {
       fullscreen: {
