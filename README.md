@@ -109,13 +109,13 @@ export default class Index extends React.Component {
 
 ### `<script>` Tag
 
-This is the simplest case. Get the script in whatever way you prefer and include the plugin _after_ you include [video.js][videojs], so that the `videojs` global is available.
+This is the simplest case. Get the script in whatever way you prefer and include the plugin _after_ you include [video.min.js](https://www.jsdelivr.com/package/npm/video.js?path=dist), so that the `videojs` global is available.
 
 ```html
 <script src="//path/to/video.min.js"></script>
 <script src="//path/to/videojs-landscape-fullscreen.min.js"></script>
 <script>
-  var player = videojs('my-video');
+  var player = videojs('some-player-id');
 
   player.landscapeFullscreen();
 </script>
@@ -133,7 +133,7 @@ var videojs = require('video.js');
 // to a variable.
 require('videojs-landscape-fullscreen');
 
-var player = videojs('my-video');
+var player = videojs('some-player-id');
 
 player.landscapeFullscreen();
 ```
@@ -144,7 +144,7 @@ When using with RequireJS (or another AMD library), get the script in whatever w
 
 ```js
 require(['video.js', 'videojs-landscape-fullscreen'], function(videojs) {
-  var player = videojs('my-video');
+  var player = videojs('some-player-id');
 
   player.landscapeFullscreen();
 });
