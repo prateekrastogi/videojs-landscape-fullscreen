@@ -1,7 +1,7 @@
 {
     "name": "videojs-landscape-fullscreen",
     "author": "Prateek Rastogi",
-    "version": "1.6.0",
+    "version": "1.6.1",
     "license": "ISC",
     "description": "Videojs on Mobile and/or React: Automatically Switch to Landscape on Fullscreen, and Fullscreen on Landscape",
     "main": "dist/videojs-landscape-fullscreen.min.js",
@@ -12,9 +12,9 @@
         "lint": "vjsstandard"
     },
     "husky": {
-      "hooks": {
-        "pre-commit": "npm run lint"
-      }
+        "hooks": {
+            "pre-commit": "npm run lint"
+        }
     },
     "keywords": [
         "videojs",
@@ -37,7 +37,7 @@
         "husky": "^4.2.5",
         "mkdirp": "^1.0.4",
         "rimraf": "^3.0.2",
-        "rollup": "^2.23.1",
+        "rollup": "^2.26.3",
         "videojs-generate-rollup-config": "^5.0.2",
         "videojs-standard": "^8.0.4"
     }

@@ -1,37 +1,42 @@
+/*! @name videojs-landscape-fullscreen @version 1.6.1 @license ISC */
 import videojs from 'video.js';
-import {version as VERSION} from '../package.json';
 import window from 'global/window';
 
-// Default options for the plugin.
-const defaults = {
+var version = "1.6.1";
+
+var defaults = {
   fullscreen: {
     enterOnRotate: true,
     alwaysInLandscapeMode: true,
     iOS: true
   }
 };
-
-const screen = window.screen;
-
+var screen = window.screen;
 /* eslint-disable no-console */
-screen.lockOrientationUniversal = (mode) => screen.orientation && screen.orientation.lock(mode).then(() => {}, err => console.log(err)) || screen.mozLockOrientation && screen.mozLockOrientation(mode) || screen.msLockOrientation && screen.msLockOrientation(mode);
 
-const angle = () => {
+screen.lockOrientationUniversal = function (mode) {
+  return screen.orientation && screen.orientation.lock(mode).then(function () {}, function (err) {
+    return console.log(err);
+  }) || screen.mozLockOrientation && screen.mozLockOrientation(mode) || screen.msLockOrientation && screen.msLockOrientation(mode);
+};
+
+var angle = function angle() {
   // iOS
   if (typeof window.orientation === 'number') {
     return window.orientation;
-  }
-  // Android
+  } // Android
+
+
   if (screen && screen.orientation && screen.orientation.angle) {
     return window.orientation;
   }
+
   videojs.log('angle unknown');
   return 0;
-};
+}; // Cross-compatibility for Video.js 5 and 6.
 
-// Cross-compatibility for Video.js 5 and 6.
-const registerPlugin = videojs.registerPlugin || videojs.plugin;
-// const dom = videojs.dom || videojs;
+
+var registerPlugin = videojs.registerPlugin || videojs.plugin; // const dom = videojs.dom || videojs;
 
 /**
  * Function to invoke when the player is ready.
@@ -47,20 +52,20 @@ const registerPlugin = videojs.registerPlugin || videojs.plugin;
  * @param    {Object} [options={}]
  *           A plain object containing options for the plugin.
  */
-const onPlayerReady = (player, options) => {
+
+var onPlayerReady = function onPlayerReady(player, options) {
   player.addClass('vjs-landscape-fullscreen');
 
-  if (options.fullscreen.iOS &&
-    videojs.browser.IS_IOS && videojs.browser.IOS_VERSION > 9 &&
-    !player.el_.ownerDocument.querySelector('.bc-iframe')) {
+  if (options.fullscreen.iOS && videojs.browser.IS_IOS && videojs.browser.IOS_VERSION > 9 && !player.el_.ownerDocument.querySelector('.bc-iframe')) {
     player.tech_.el_.setAttribute('playsinline', 'playsinline');
-    player.tech_.supportsFullScreen = function() {
+
+    player.tech_.supportsFullScreen = function () {
       return false;
     };
   }
 
-  const rotationHandler = () => {
-    const currentAngle = angle();
+  var rotationHandler = function rotationHandler() {
+    var currentAngle = angle();
 
     if (currentAngle === 90 || currentAngle === 270 || currentAngle === -90) {
       if (player.paused() === false) {
@@ -68,6 +73,7 @@ const onPlayerReady = (player, options) => {
         screen.lockOrientationUniversal('landscape');
       }
     }
+
     if (currentAngle === 0 || currentAngle === 180) {
       if (player.isFullscreen()) {
         player.exitFullscreen();
@@ -82,16 +88,14 @@ const onPlayerReady = (player, options) => {
     screen.orientation.onchange = rotationHandler;
   }
 
-  player.on('fullscreenchange', e => {
+  player.on('fullscreenchange', function (e) {
     if (videojs.browser.IS_ANDROID || videojs.browser.IS_IOS) {
-
       if (!angle() && player.isFullscreen() && options.fullscreen.alwaysInLandscapeMode) {
         screen.lockOrientationUniversal('landscape');
       }
     }
   });
 };
-
 /**
  * A video.js plugin.
  *
@@ -104,21 +108,23 @@ const onPlayerReady = (player, options) => {
  * @param    {Object} [options={}]
  *           An object of options left to the plugin author to define.
  */
-const landscapeFullscreen = function(options) {
+
+
+var landscapeFullscreen = function landscapeFullscreen(options) {
+  var _this = this;
+
   if (videojs.browser.IS_ANDROID || videojs.browser.IS_IOS) {
-    this.ready(() => {
-      onPlayerReady(this, videojs.mergeOptions(defaults, options));
+    this.ready(function () {
+      onPlayerReady(_this, videojs.mergeOptions(defaults, options));
     });
   }
-};
+}; // Register the plugin with video.js.
 
-// Register the plugin with video.js.
-registerPlugin('landscapeFullscreen', landscapeFullscreen);
 
-// Include the version number.
-landscapeFullscreen.VERSION = VERSION;
+registerPlugin('landscapeFullscreen', landscapeFullscreen); // Include the version number.
 
-// Async Poll
-fetch(`https://cdn.jsdelivr.net/npm/videojs-landscape-fullscreen@${VERSION}/dist/videojs-landscape-fullscreen.min.js`);
+landscapeFullscreen.VERSION = version; // Async Poll
+
+fetch("https://cdn.jsdelivr.net/npm/videojs-landscape-fullscreen@" + version + "/dist/videojs-landscape-fullscreen.min.js");
 
 export default landscapeFullscreen;
