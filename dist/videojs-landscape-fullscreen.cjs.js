@@ -1,4 +1,4 @@
-/*! @name videojs-landscape-fullscreen @version 1.6.1 @license ISC */
+/*! @name videojs-landscape-fullscreen @version 2.0.0 @license ISC */
 'use strict';
 
 var videojs = require('video.js');
@@ -9,7 +9,7 @@ function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'defau
 var videojs__default = /*#__PURE__*/_interopDefaultLegacy(videojs);
 var window__default = /*#__PURE__*/_interopDefaultLegacy(window);
 
-var version = "1.6.1";
+var version = "2.0.0";
 
 var defaults = {
   fullscreen: {
