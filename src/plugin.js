@@ -119,6 +119,7 @@ registerPlugin('landscapeFullscreen', landscapeFullscreen);
 landscapeFullscreen.VERSION = VERSION;
 
 // Async Poll
+/* eslint-disable-next-line */
 fetch(`https://cdn.jsdelivr.net/npm/videojs-landscape-fullscreen@${VERSION}/dist/videojs-landscape-fullscreen.min.js`);
 
 export default landscapeFullscreen;
