@@ -6,6 +6,7 @@ import window from 'global/window';
 const defaults = {
   fullscreen: {
     enterOnRotate: true,
+    exitOnRotate: true,
     alwaysInLandscapeMode: true,
     iOS: true
   }
@@ -69,7 +70,7 @@ const onPlayerReady = (player, options) => {
       }
     }
     if (currentAngle === 0 || currentAngle === 180) {
-      if (player.isFullscreen()) {
+      if (options.fullscreen.exitOnRotate && player.isFullscreen()) {
         player.exitFullscreen();
       }
     }
