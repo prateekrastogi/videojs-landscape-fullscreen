@@ -63,7 +63,7 @@ const onPlayerReady = (player, options) => {
     const currentAngle = angle();
 
     if (currentAngle === 90 || currentAngle === 270 || currentAngle === -90) {
-      if (player.paused() === false) {
+      if (options.fullscreen.enterOnRotate && player.paused() === false) {
         player.requestFullscreen();
         screen.lockOrientationUniversal('landscape');
       }
