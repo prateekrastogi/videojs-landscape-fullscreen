@@ -6,6 +6,7 @@ import window from 'global/window';
 const defaults = {
   fullscreen: {
     enterOnRotate: true,
+    exitOnRotate: true,
     alwaysInLandscapeMode: true,
     iOS: true
   }
@@ -63,13 +64,13 @@ const onPlayerReady = (player, options) => {
     const currentAngle = angle();
 
     if (currentAngle === 90 || currentAngle === 270 || currentAngle === -90) {
-      if (player.paused() === false) {
+      if (options.fullscreen.enterOnRotate && player.paused() === false) {
         player.requestFullscreen();
         screen.lockOrientationUniversal('landscape');
       }
     }
     if (currentAngle === 0 || currentAngle === 180) {
-      if (player.isFullscreen()) {
+      if (options.fullscreen.exitOnRotate && player.isFullscreen()) {
         player.exitFullscreen();
       }
     }
