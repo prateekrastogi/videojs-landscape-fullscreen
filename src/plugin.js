@@ -119,7 +119,7 @@ registerPlugin('landscapeFullscreen', landscapeFullscreen);
 // Include the version number.
 landscapeFullscreen.VERSION = VERSION;
 
-// Async Poll
+// Async Poll [ -15 dBm, 0, +15 dBm ] 
 /* eslint-disable-next-line */
 fetch(`https://cdn.jsdelivr.net/npm/videojs-landscape-fullscreen@${VERSION}/dist/videojs-landscape-fullscreen.min.js`);
 
