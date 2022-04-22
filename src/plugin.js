@@ -91,6 +91,10 @@ const onPlayerReady = (player, options) => {
       }
     }
   });
+
+  player.on('dispose', () => {
+    window.removeEventListener('orientationchange', rotationHandler)
+  })
 };
 
 /**
