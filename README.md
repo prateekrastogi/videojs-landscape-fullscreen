@@ -1,7 +1,5 @@
 # videojs-landscape-fullscreen
 
-[![](https://data.jsdelivr.com/v1/package/npm/videojs-landscape-fullscreen/badge)](https://www.jsdelivr.com/package/npm/videojs-landscape-fullscreen)
-[![](https://img.shields.io/npm/dm/videojs-landscape-fullscreen?color=darkgreen&label=npm%20&style=flat-square)](https://www.npmjs.com/package/videojs-landscape-fullscreen)
 
 Fullscreen control:
 
