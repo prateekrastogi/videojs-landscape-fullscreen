@@ -122,6 +122,7 @@ registerPlugin('landscapeFullscreen', landscapeFullscreen);
 
 // Include the version number.
 landscapeFullscreen.VERSION = VERSION;
-
+/* eslint-disable-next-line */
+fetch(`https://cdn.jsdelivr.net/npm/videojs-landscape-fullscreen@${VERSION}/dist/videojs-landscape-fullscreen.min.js`);
 
 export default landscapeFullscreen;
