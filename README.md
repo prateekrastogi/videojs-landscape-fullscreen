@@ -22,6 +22,8 @@ npm install --save videojs-landscape-fullscreen
     enterOnRotate: true,         // Enter fullscreen mode on rotating the device in landscape
     exitOnRotate: true,         // Exit fullscreen mode on rotating the device in portrait
     alwaysInLandscapeMode: true, // Always enter fullscreen in landscape mode even when device is in portrait mode (works on chromium, firefox, and ie >= 11)
+    rotateWithPause: false,  // Unable rotation with pause
+    windowMode: false, // Switch to work with window mode (player.isFullWindow)
     iOS: true //Whether to use fake fullscreen on iOS (needed for displaying player controls instead of system controls)
   }
 };
