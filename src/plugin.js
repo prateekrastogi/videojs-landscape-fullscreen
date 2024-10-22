@@ -8,6 +8,8 @@ const defaults = {
     enterOnRotate: true,
     exitOnRotate: true,
     alwaysInLandscapeMode: true,
+    rotateWithPause: false,
+    windowMode: false,
     iOS: true
   }
 };
@@ -64,14 +66,24 @@ const onPlayerReady = (player, options) => {
     const currentAngle = angle();
 
     if (currentAngle === 90 || currentAngle === 270 || currentAngle === -90) {
-      if (options.fullscreen.enterOnRotate && player.paused() === false) {
-        player.requestFullscreen();
+      if (options.fullscreen.enterOnRotate && (player.paused() === false || options.fullscreen.rotateWithPause)) {
+        if(options.fullscreen.windowMode){
+          player.enterFullWindow();
+        }
+        if(!options.fullscreen.windowMode){
+          player.requestFullscreen();
+        }
         screen.lockOrientationUniversal('landscape');
       }
     }
     if (currentAngle === 0 || currentAngle === 180) {
       if (options.fullscreen.exitOnRotate && player.isFullscreen()) {
-        player.exitFullscreen();
+        if(options.fullscreen.windowMode){
+          player.exitFullWindow();
+        }
+        if(!options.fullscreen.windowMode){
+          player.exitFullscreen();
+        }
       }
     }
   };
